@@ -1,7 +1,10 @@
 Deploy Flask App on KIND (Kubernetes in Docker) Using EC2
 Step-by-Step Implementation
+
 Step 1: Setup EC2 Instance (Ubuntu t2.medium)
+
 Login to AWS Console → EC2 Service
+
 Launch Instance
 
 Name: k8s
