@@ -1,0 +1,77 @@
+1  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    2  chmod +x kubectl
+    3  sudo mv kubectl /usr/local/bin/kubectl
+    4  kubectl version --client
+    5  curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+    6  chmod +x ./kind
+    7  sudo mv ./kind /usr/local/bin/kind
+    8  kind version
+    9  vim kind-config.yaml
+   10  kind create cluster --name flask-cluster --config kind-config.yaml
+   11  kubectl cluster-info
+   12  kubectl get nodes
+   13  kubectl create namespace flask-namespace
+   14  kubectl get ns
+   15  mkdir flask-app && cd flask-app
+   16  vim app.py
+   17  vim requirements.txt
+   18  vim Dockerfile
+   19  docker build -t my-image:latest .
+   20  vim flask-deployment.yaml
+   21  vim flask-service.yaml
+   22  kubectl apply -f flask-deployment.yaml
+   23  kubectl apply -f flask-service.yaml
+   24  kubectl get pods -n flask-namespace
+   25  kubectl get svc -n flask-namespace
+   26  kubectl get pods -n flask-namespace
+   27  kind load docker-image my-image:latest --name flask-cluster
+   28  kubectl delete pod -n flask-namespace -l app=flask
+   29  kubectl get pods -n flask-namespace -w
+   30  kind get nodes
+   31  kind get clusters
+   32  kind get nodes --name flask-cluster
+   33  kind load docker-image my-image:latest --name flask-cluster --nodes flask-cluster-control-plane
+   34  kubectl delete pod -n flask-namespace -l app=flask
+   35  kubectl get pods -n flask-namespace -w
+   36  vim flask-deployment.yaml
+   37  kubectl apply -f flask-deployment.yaml
+   38  vim flask-deployment.yaml
+   39  kubectl apply -f flask-deployment.yaml
+   40  kubectl delete pod -n flask-namespace -l app=flask
+   41  kubectl get pods -n flask-namespace -w
+   42  kubectl delete pods -n flask-namespace --all
+   43  kubectl apply -f flask-deployment.yaml
+   44  kubectl get pods -n flask-namespace -w
+   45  kubectl get deployments -n flask-namespace
+   46  vim flask-deployment.yaml
+   47  kubectl apply -f flask-deployment.yaml
+   48  kubectl delete pod -n flask-namespace --all
+   49  kubectl get pods -n flask-namespace -w
+   50  kubectl get pods -n flask-namespace 
+   51  kubectl get svc -n flask-namespace
+   52  kubectl port-forward svc/flask-service 5000:5000 -n flask-namespace
+   53  kubectl get svc -n flask-namespace
+   54  kubectl get pods -n flask-namespace 
+   55  kind delete cluster --name flask-cluster
+   56  vim kind-config.yaml
+   57  kind create cluster --name flask-cluster --config kind-config.yaml
+   58  kind load docker-image my-image:latest --name flask-cluster
+   59  ll
+   60  kind get nodes --name flask-cluster
+   61  kubectl apply -f flask-deployment.yaml
+   62  kubectl apply -f flask-service.yaml
+   63  kubectl create namespace flask-namespace
+   64  kubectl apply -f flask-deployment.yaml
+   65  kubectl apply -f flask-service.yaml
+   66  kubectl delete pod -n flask-namespace --all
+   67  kubectl get pods -n flask-namespace 
+   68  ll
+   69  cat Dockerfile 
+   70  cat app.py 
+   71  cat requirements.txt 
+   72  ll
+   73  vim flask-deployment.yaml 
+   74  cat flask-deployment.yaml 
+   75  cat flask-service.yaml 
+   76  cat kind-config.yaml 
+   77  history
