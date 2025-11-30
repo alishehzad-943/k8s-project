@@ -8,6 +8,7 @@ spec:
   selector:
     app: flask
   ports:
-    - port: 5000        # internal cluster port
-      targetPort: 5000  # pod ka port
-      nodePort: 30007   # external port to access from host
+    - port: 5000
+      targetPort: 5000
+      nodePort: 30007
+
